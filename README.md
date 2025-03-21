@@ -289,50 +289,48 @@ Scheduling Diagrams
         
     
     *   ![Scheduling Expand Cycle For.png](attachments/3168993281/3258646543.png?width=500)
-    *   The **for** loop is responsible for calculating the **32-bit words for a block**. Each iteration of the cycle represents one column in the message expansion. Since this **for** is inside an **always\_ff block**, all additions are performed within the same clock cycle. However, it is not possible to calculate a word ahead of time, since each value depends on the calculation of the previous word.
-        
-    *   El ciclo **for** se encarga del cálculo de las palabras de **32 bits** para **un bloque**. Cada iteración del ciclo representa una columna en la expansión del mensaje. Dado que este **for** se encuentra dentro de un bloque **always\_ff**, todas las **sumas** se realizan dentro del **mismo ciclo de reloj**. Sin embargo, no es posible calcular una palabra antes de tiempo, ya que cada valor depende del cálculo de la palabra anterior.
+    *   The **for** loop is responsible for calculating the **32-bit words for a block**. Each iteration of the cycle represents one column in the message expansion. Since this **for** is inside an **always\_ff block**, all **additions** are performed within the **same clock cycle**. However, it is not possible to calculate a word ahead of time, since each value depends on the calculation of the previous word.
         
     *   ![Scheduling Expand words w.png](attachments/3168993281/3265789970.png?width=500)
         
-    *   En el caso de **calcular dos bloques en paralelo** mediante una estructura de **pipeline**, el scheduling del proceso permite **reutilizar los mismos recursos** para las operaciones de **Suma1** y **Suma2**. Mientras se calculan estos valores para un bloque, los **mismos recursos pueden emplearse simultáneamente** para obtener las **palabras correspondientes al siguiente bloque**. De esta manera, se **optimiza** el uso del hardware, asegurando un flujo continuo en la generación de **wj\[i\]** sin interrupciones.
+    *   In the case of **calculating two blocks in parallel** using a **pipeline** structure, the scheduling of the process allows the same **resources to be reused** for the **Sum1** and **Sum2** operations. While calculating these values for one block, the **same resources can be used simultaneously** to **obtain the words corresponding to the next block**. In this way, the use of the hardware is optimized, ensuring a continuous flow in the generation of w\_j\[i\] without interruptions.
         
 *   Process
     
     *   ![Scheduling Process.png](attachments/3168993281/3239378955.png?width=500)
         
-    *   En la figura se observa que el estado **process** solo puede **aplicarse por bloques**, ya que depende de los valores de las constantes **H\[i\]**, las cuales se **actualizan** después de procesar **cada bloque**. Debido a esta **dependencia secuencial**, **no** es posible **paralelizar ni implementar** una estructura de **pipeline** en este estado.
+    *   The figure shows that the **process state** can only be **applied in blocks**, since it depends on the values of the constants **H\[i\]**, which are **updated** after processing **each block**. Due to this **sequential dependency**, it is **not possible to parallelize or implement a pipeline structure** in this state.
         
 *   Update\_Hash
     
-    *   El diagrama de scheduling de este estado muestra un **único proceso**, que consiste en **almacenar** los valores de **H\[i\]** en una **señal de salida** llamada **sha256\_digest**. Estos **valores** corresponden a los **resultados obtenidos** después de la ejecución del **estado process**.
+    *   The scheduling diagram of this state shows a **single process**, which consists of **storing** the values of **H\[i\]** in an output signal called **sha256\_digest**. These **values** correspond to the **results obtained after the execution of the process state**.
         
 
 Procesos paralelizables
 -----------------------
 
-Cuando se aplica la función SHA-256 a un mensaje cuyo tamaño es mayor a **447 bits**, su longitud se ajusta a un **múltiplo de 512 bits** tras el proceso de **padding**. En el estado **Expand**, el mensaje se divide en bloques de **512 bits**, y a partir de este punto, cada bloque sigue una serie de pasos hasta llegar al estado **Update\_hash**, donde se genera el **hash final**.
+When the SHA-256 function is applied to a message larger than **447 bits**, its length is adjusted to a **multiple of 512 bits** after **padding**. In the **Expand state**, the message is divided into **512-bit blocks**, and from this point on, each block follows a series of steps until it reaches the **Update\_hash state**, where the **final hash** is generated.
 
-Al analizar los diagramas de **Scheduling**, se observa que varios procesos pueden **paralelizarse** para optimizar el uso de los recursos de la tarjeta. Un primer nivel de paralelismo se encuentra en la recepción de datos: es posible recibir un **nuevo mensaje mientras se procesa otro**. Sin embargo, este proceso no es completamente simultáneo, ya que el primer mensaje debe alcanzar el estado **Process** antes de liberar el **buffer** de entrada para el siguiente mensaje.
+When analyzing the **scheduling diagrams,** it can be seen that several processes can be **parallelized** to optimize the use of the card's resources. A first level of parallelism is found in data reception: it is possible to receive a **new message** **while another one is being processed**. However, this process is not completely simultaneous, since the first message must reach the **Process state** before freeing the input **buffer** for the next message.
 
-Otro aspecto paralelizable es el **cálculo de las palabras en el estado Expand**. Dado que las palabras de un bloque **no dependen de otros bloques**, es posible implementar una **paralelización tipo pipeline** para acelerar esta etapa.
+Another parallelizable aspect is the **computation of words in the Expand state**. Since the words in a block do **not depend** **on other blocks**, it is possible to implement **pipeline-like parallelization** to speed up this stage.
 
-Por otro lado, el estado **Process** **no puede** paralelizarse, ya que los valores de hash utilizados para inicializar los registros dependen de los cálculos realizados en los **bloques anteriores**. Esto impone una dependencia secuencial en la actualización del hash final.
+On the other hand, the **Process state cannot** be parallelized, since the hash values used to initialize the registers depend on the computations performed in the **previous blocks.** This imposes a sequential dependency on the update of the final hash.
 
 Testbench
 ---------
 
-*   Una de las formas para poner a prueba el código es que vamos a usar lo que se conoce como **“testvector”** son mensajes conocidos y de los cuales se conoce el hash correspondiente al mensaje.
+*   One of the ways to test the code is that we are going to use what is known as “**testvector**” are known messages and of which the hash corresponding to the message is known.
     
-    *   Un testvector de **24 bits** de longitud es “`abc`” cuyo output en hexadecimal es:
+    *   A **24-bit** long testvector is “**abc**” whose output in hexadecimal is:
         
         *   `ba7816bf 8f01cfea 414140de 5dae2223 b00361a3 96177a9c b410ff61 f20015ad`
             
-    *   Un testvector de **448 bits** de longitud es “`abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq`“ cuyo output en hexadecimal es:
+    *   A **448-bit** long testvector is “**abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq**” whose hexadecimal output is:
         
         *   `248d6a61 d20638b8 e5c02693 0c3e6039 a33ce459 64ff2167 f6ecedd4 19db06c1`
             
-*   Otra forma de probar el diseño es creando un código en python que calcule el hash a un mensaje cualquiera con sha256 e ir comprobando el paso a paso de cada parte o estado de nuestra máquina.
+*   Another way to test the design is to create a Python code that calculates the hash of any message with sha256 and checks step by step each part or state of our machine.
     
 
 P256
