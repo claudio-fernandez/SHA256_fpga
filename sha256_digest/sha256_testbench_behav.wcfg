@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sha256_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sha256_pkg" />
+            <top_module name="sha256_testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="333.333 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,744.923 ns"></ZoomEndTime>
+      <Cursor1Time time="2,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <ValueColumnWidth column_width="247"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="33" />
+   <wvobject fp_name="/sha256_testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/padding_done" type="logic">
+      <obj_property name="ElementShortName">padding_done</obj_property>
+      <obj_property name="ObjectShortName">padding_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/next_step" type="logic">
+      <obj_property name="ElementShortName">next_step</obj_property>
+      <obj_property name="ObjectShortName">next_step</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/valid_in" type="logic">
+      <obj_property name="ElementShortName">valid_in</obj_property>
+      <obj_property name="ObjectShortName">valid_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/valid_out" type="logic">
+      <obj_property name="ElementShortName">valid_out</obj_property>
+      <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/msg_complete" type="logic">
+      <obj_property name="ElementShortName">msg_complete</obj_property>
+      <obj_property name="ObjectShortName">msg_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/Expand_ready" type="logic">
+      <obj_property name="ElementShortName">Expand_ready</obj_property>
+      <obj_property name="ObjectShortName">Expand_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/Process_done" type="logic">
+      <obj_property name="ElementShortName">Process_done</obj_property>
+      <obj_property name="ObjectShortName">Process_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/padding_start" type="logic">
+      <obj_property name="ElementShortName">padding_start</obj_property>
+      <obj_property name="ObjectShortName">padding_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/message_in" type="array">
+      <obj_property name="ElementShortName">message_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">message_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/message_len" type="array">
+      <obj_property name="ElementShortName">message_len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">message_len[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/sha256_digest" type="array">
+      <obj_property name="ElementShortName">sha256_digest[255:0]</obj_property>
+      <obj_property name="ObjectShortName">sha256_digest[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/padded_message" type="array">
+      <obj_property name="ElementShortName">padded_message[511:0]</obj_property>
+      <obj_property name="ObjectShortName">padded_message[511:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/W" type="array">
+      <obj_property name="ElementShortName">W[0:63][63:0]</obj_property>
+      <obj_property name="ObjectShortName">W[0:63][63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/block_padding" type="array">
+      <obj_property name="ElementShortName">block_padding[511:0]</obj_property>
+      <obj_property name="ObjectShortName">block_padding[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/out" type="array">
+      <obj_property name="ElementShortName">out[255:0]</obj_property>
+      <obj_property name="ObjectShortName">out[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/buffer" type="array">
+      <obj_property name="ElementShortName">buffer[511:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/count" type="array">
+      <obj_property name="ElementShortName">count[6:0]</obj_property>
+      <obj_property name="ObjectShortName">count[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/a" type="array">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/b" type="array">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/c" type="array">
+      <obj_property name="ElementShortName">c[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/d" type="array">
+      <obj_property name="ElementShortName">d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">d[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/e" type="array">
+      <obj_property name="ElementShortName">e[31:0]</obj_property>
+      <obj_property name="ObjectShortName">e[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/f" type="array">
+      <obj_property name="ElementShortName">f[31:0]</obj_property>
+      <obj_property name="ObjectShortName">f[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/g" type="array">
+      <obj_property name="ElementShortName">g[31:0]</obj_property>
+      <obj_property name="ObjectShortName">g[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/h" type="array">
+      <obj_property name="ElementShortName">h[31:0]</obj_property>
+      <obj_property name="ObjectShortName">h[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/t" type="array">
+      <obj_property name="ElementShortName">t[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sha256_testbench/uut/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
+   </wvobject>
+</wave_config>

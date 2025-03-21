@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,233.040 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,463.441 ns"></ZoomEndTime>
+      <Cursor1Time time="1,356.040 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/test_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/message_in" type="array">
+      <obj_property name="ElementShortName">message_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">message_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/message_len" type="array">
+      <obj_property name="ElementShortName">message_len[15:0]</obj_property>
+      <obj_property name="ObjectShortName">message_len[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/before_start" type="logic">
+      <obj_property name="ElementShortName">before_start</obj_property>
+      <obj_property name="ObjectShortName">before_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/valid_in" type="logic">
+      <obj_property name="ElementShortName">valid_in</obj_property>
+      <obj_property name="ObjectShortName">valid_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/num_blocks" type="array">
+      <obj_property name="ElementShortName">num_blocks[3:0]</obj_property>
+      <obj_property name="ObjectShortName">num_blocks[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/buffer" type="array">
+      <obj_property name="ElementShortName">buffer[511:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer[511:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/block_1" type="array">
+      <obj_property name="ElementShortName">block_1[511:0]</obj_property>
+      <obj_property name="ObjectShortName">block_1[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/block_2" type="array">
+      <obj_property name="ElementShortName">block_2[511:0]</obj_property>
+      <obj_property name="ObjectShortName">block_2[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/block_3" type="array">
+      <obj_property name="ElementShortName">block_3[511:0]</obj_property>
+      <obj_property name="ObjectShortName">block_3[511:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/block_ready" type="logic">
+      <obj_property name="ElementShortName">block_ready</obj_property>
+      <obj_property name="ObjectShortName">block_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/block_ready_next" type="logic">
+      <obj_property name="ElementShortName">block_ready_next</obj_property>
+      <obj_property name="ObjectShortName">block_ready_next</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/dut/last_byte" type="array">
+      <obj_property name="ElementShortName">last_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">last_byte[7:0]</obj_property>
+   </wvobject>
+</wave_config>

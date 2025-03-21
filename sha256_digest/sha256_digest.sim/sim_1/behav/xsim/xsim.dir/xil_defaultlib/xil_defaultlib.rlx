@@ -1,0 +1,7 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+C:/Users/clfernan/sha256_digest/sha256_digest.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/clfernan/sha256_digest/sha256_digest.srcs/sim_1/new/sha256_digest_tb.sv,1740146633,systemVerilog,,,,sha256_testbench,,uvm,,,,,,
+C:/Users/clfernan/sha256_digest/sha256_digest.srcs/sources_1/new/sha256_digest.sv,1740405797,systemVerilog,C:/Users/clfernan/sha256_digest/sha256_digest.srcs/sim_1/new/sha256_digest_tb.sv,C:/Users/clfernan/sha256_digest/sha256_digest.srcs/sim_1/new/sha256_digest_tb.sv,,sha256_digest;sha256_pkg,,uvm,,,,,,
