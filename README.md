@@ -237,7 +237,7 @@ To receive the message, we use a **512-bit buffer** that will be receiving the m
 Finite State Machine SHA 256
 ----------------------------
 
-*   ![FSM_SHA256.png](attachments/3168993281/3199467521.png?width=503)
+*  <img src='images/FSM_SHA256.png' alt='FSM_SHA256' width='400'/>
     
     *   In the **Idle** state, the machine is **waiting** to receive a message.
         
