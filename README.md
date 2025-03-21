@@ -1,20 +1,3 @@
-# SHA256_fpga
-https://openwsn.atlassian.net/wiki/spaces/~712020480eb126123d4999a7c5efa4f829d424/pages/3168993281/Intership+January-+March+2025?force_transition=784d315f-421c-4907-b37a-8771ff92d8e6
-
-/\*<!\[CDATA\[\*/ div.rbtoc1742570880829 {padding: 0px;} div.rbtoc1742570880829 ul {list-style: default;margin-left: 0px;padding-left: ;} div.rbtoc1742570880829 li {margin-left: 0px;padding-left: 0px;} /\*\]\]>\*/
-
-*   [Secure Hash Algorithm 256 bits (SHA-256)](#IntershipJanuary-March2025-SecureHashAlgorithm256bits(SHA-256))
-    *   [Pseudocódigo](#IntershipJanuary-March2025-Pseudocódigo)
-    *   [Variables/operations analysis](#IntershipJanuary-March2025-Variables/operationsanalysis)
-    *   [Finite State Machine SHA 256](#IntershipJanuary-March2025-FiniteStateMachineSHA256)
-    *   [Series block diagram](#IntershipJanuary-March2025-Seriesblockdiagram)
-    *   [Data-Flow Diagram (DFM) SHA256](#IntershipJanuary-March2025-Data-FlowDiagram(DFM)SHA256)
-    *   [Scheduling Diagrams](#IntershipJanuary-March2025-SchedulingDiagrams)
-    *   [Procesos paralelizables](#IntershipJanuary-March2025-Procesosparalelizables)
-    *   [Testbench](#IntershipJanuary-March2025-Testbench)
-*   [P256](#IntershipJanuary-March2025-P256)
-*   [AES](#IntershipJanuary-March2025-AES)
-
 Secure Hash Algorithm 256 bits (SHA-256)
 ========================================
 
