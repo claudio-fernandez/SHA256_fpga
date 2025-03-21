@@ -237,7 +237,7 @@ To receive the message, we use a **512-bit buffer** that will be receiving the m
 Finite State Machine SHA 256
 ----------------------------
 
-*  <img src='images/FSM_SHA256.png' alt='FSM_SHA256' width='400'/>
+*  <img src='images/FSM_SHA256.png' alt='FSM_SHA256' width='500'/>
     
     *   In the **Idle** state, the machine is **waiting** to receive a message.
         
@@ -263,7 +263,7 @@ Series block diagram
 Data-Flow Diagram (DFM) SHA256
 ------------------------------
 
-*   ![Flow diagram SHA256.png](attachments/3168993281/3202088970.png?width=350)
+*   <img src='images/Flow diagram SHA256.png' alt='FSM_SHA256' width='500'/>
     
 
 Scheduling Diagrams
@@ -271,33 +271,33 @@ Scheduling Diagrams
 
 *   SHA256
     
-    *   ![Scheduling SHA256.png](attachments/3168993281/3266641933.png?width=500)
+    *   <img src='images/Scheduling SHA256.png' alt='FSM_SHA256' width='500'/>
         
     *   We can observe that it is possible to **receive a new message** while the hash of a previous message is still being calculated. This is because, once the **Expand function** releases the **buffer** where the received message was stored, this buffer can be reused to process another message simultaneously.
         
 *   Padding
     
-    *   ![Scheduling Padding.png](attachments/3168993281/3238789129.png?width=500)
+    *   <img src='images/Scheduling Padding.png' alt='FSM_SHA256' width='500'/>
         
     *   In the figure we can notice that the **Padding process** only occurs when the **message is received**. This state cannot be parallelized because we need the **buffer** where the message is received to be **unoccupied** and this happens at the end of the **Expand function**. This is the reason why there is that blank space between each padding.
         
 *   Expand
     
-    *   ![Scheduling Expand.png](attachments/3168993281/3238658060.png?width=500)
+    *   <img src='images/Scheduling Expand.png' alt='FSM_SHA256' width='500'/>
         
     *   The figure shows the **separation of the buffer**, which contains the message with the padding applied, into **512-bit blocks**. Subsequently, for each block, the **additional 32-bit words** necessary for the expansion of the message must be **calculated**. This process is **highly parallelizable**, since the **words generated** within a block do **not depend on other blocks**, which allows taking advantage of a **pipeline structure**.
         
     
-    *   ![Scheduling Expand Cycle For.png](attachments/3168993281/3258646543.png?width=500)
+    *   <img src='images/Scheduling Expand Cycle For.png' alt='FSM_SHA256' width='500'/>
     *   The **for** loop is responsible for calculating the **32-bit words for a block**. Each iteration of the cycle represents one column in the message expansion. Since this **for** is inside an **always\_ff block**, all **additions** are performed within the **same clock cycle**. However, it is not possible to calculate a word ahead of time, since each value depends on the calculation of the previous word.
         
-    *   ![Scheduling Expand words w.png](attachments/3168993281/3265789970.png?width=500)
+    *   <img src='images/Scheduling Expand words w.png' alt='FSM_SHA256' width='500'/>
         
     *   In the case of **calculating two blocks in parallel** using a **pipeline** structure, the scheduling of the process allows the same **resources to be reused** for the **Sum1** and **Sum2** operations. While calculating these values for one block, the **same resources can be used simultaneously** to **obtain the words corresponding to the next block**. In this way, the use of the hardware is optimized, ensuring a continuous flow in the generation of w\_j\[i\] without interruptions.
         
 *   Process
     
-    *   ![Scheduling Process.png](attachments/3168993281/3239378955.png?width=500)
+    *   <img src='images/Scheduling Process.png' alt='FSM_SHA256' width='500'/>
         
     *   The figure shows that the **process state** can only be **applied in blocks**, since it depends on the values of the constants **H\[i\]**, which are **updated** after processing **each block**. Due to this **sequential dependency**, it is **not possible to parallelize or implement a pipeline structure** in this state.
         
